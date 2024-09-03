@@ -1,0 +1,18 @@
+<header>
+  <div class="logo_container">
+    <div class="logo_img"></div>
+    <a class="logo" routerLink="" href="#home">Boucherie Jean Talon</a>
+  </div>
+
+  <nav #navbar class="navbar">
+    <a [routerLink]="['']">Accueil</a>
+    <a [routerLink]="['']" fragment="must">Merguez</a>
+    <a [routerLink]="['']" fragment="produits">Produits</a>
+    <a routerLink="produits">Gallerie</a>
+    <a [routerLink]="['']" fragment="testimonials">Avis</a>
+    <a [routerLink]="['']" fragment="contact">Contact</a>
+  </nav>
+  <div #menuIcon (click)="burgerMenu()" class="icons">
+    <img src="assets/more.png" alt="" />
+  </div>
+</header>

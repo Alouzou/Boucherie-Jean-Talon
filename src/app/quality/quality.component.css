@@ -1,0 +1,76 @@
+/* =================== Livraison qualité halal =====================*/
+.section3 {
+  background-color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+}
+.animate__animated {
+  opacity: 0;
+}
+
+.animate__animated.animate__zoomIn {
+  --animate-duration: 2s;
+  opacity: 1;
+}
+.section3 .box {
+  width: 244px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  margin: 2%;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+.section3 .box:hover {
+  transform: scale(1.1);
+}
+.section3 .box h3 {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-top: 10%;
+}
+
+.section3 img {
+  width: 80%;
+  height: auto;
+  max-width: 100%;
+}
+
+.section3 p {
+  color: var(--white);
+  text-align: center;
+}
+
+@media (max-width: 925px) {
+  .section3 {
+    flex-direction: column;
+    padding: 2%;
+  }
+  .section3 .box {
+    width: 50%;
+  }
+  .section3 img {
+    width: 50%;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 925px) {
+  .section3 {
+    position: relative;
+  }
+  .section3 .box {
+    width: 40%;
+  }
+}
+
+@media (max-width: 450px) {
+  .section3 .box {
+    width: 80%;
+  }
+}

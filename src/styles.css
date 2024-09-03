@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pacifico&display=swap");
+@import "animate.css/animate.min.css";
+html {
+  font-size: 90%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: none;
+  outline: none;
+  border: none;
+  /*transition: all 0.2s linear;*/
+  list-style: none;
+}
+
+:root {
+  --light-red: #ba4646;
+  --red: #841f1f;
+  --white: #fff;
+  --falu-red-50: #fef2f2;
+  --falu-red-100: #fee2e2;
+  --falu-red-200: #fecaca;
+  --falu-red-300: #fba6a6;
+  --falu-red-400: #f77272;
+  --falu-red-500: #ee4545;
+  --falu-red-600: #db2727;
+  --falu-red-700: #b81d1d;
+  --falu-red-800: #981c1c;
+  --falu-red-900: #841f1f;
+  --falu-red-950: #450a0a;
+}
+
+@media (max-width: 925px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+}

@@ -1,0 +1,129 @@
+/* ================= Section Intro ================= */
+* {
+  text-transform: none;
+}
+
+.home {
+  background-color: var(--red);
+
+  width: 100%;
+  position: relative;
+}
+
+.animate__animated.animate__fadeInDown,
+.animate__animated.animate__fadeInRight {
+  --animate-duration: 2s;
+}
+#home_container {
+  position: relative;
+  display: flex;
+  height: 750px;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  background-color: var(--red);
+  /* background: rgb(132, 31, 31);
+  background: linear-gradient(
+    135deg,
+    rgba(132, 31, 31, 1) 28%,
+    rgba(186, 70, 70, 1) 51%,
+    rgba(132, 31, 31, 1) 70%
+  ); */
+  padding: 2rem 1rem;
+  gap: 3rem;
+}
+
+.home .intro {
+  height: 80%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.home_container_title {
+  font-family: "Nunito", sans-serif;
+}
+.home .intro .signature {
+  font-size: 2rem;
+  font-style: italic;
+  color: white;
+  font-family: "Pacifico", cursive;
+  border-left: 4px solid var(--light-red);
+  padding-left: 1%;
+}
+.home .intro .home_container_intro {
+  font-size: larger;
+}
+
+.home .intro_image {
+  height: 400px;
+  width: 40%;
+  background-image: url("/assets/épicerie.jpg");
+  background-size: cover;
+  border-radius: 10px 10px 10px 100px;
+  background-position: center;
+}
+
+.home .intro .title {
+  position: relative;
+  color: white;
+}
+.home .intro .title h3 {
+  font-size: 4rem;
+}
+
+@media (max-width: 925px) {
+  #home_container {
+    height: 650px;
+  }
+
+  .home .intro_image {
+    height: 300px;
+    width: 40%;
+  }
+}
+
+@media (max-width: 600px) {
+  #home_container {
+    position: relative;
+    height: 560px;
+    top: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: var(--red);
+  }
+
+  .home .intro {
+    display: flex;
+    gap: 1rem;
+    width: 95%;
+    justify-content: start;
+  }
+  .home .intro p {
+    margin-bottom: 0.1rem;
+    font-size: 1.5rem;
+  }
+  .home .intro_image {
+    height: 400px;
+    width: 95%;
+    border-radius: 10px;
+  }
+  .home .intro .title {
+    position: relative;
+    top: 0;
+  }
+
+  .home .intro .title h3 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #home_container {
+    height: 660px;
+  }
+}

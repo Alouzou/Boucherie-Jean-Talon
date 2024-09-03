@@ -1,0 +1,15 @@
+<section id="testimonials">
+  <h2>Découverez ce que nos clients disent de nous.</h2>
+  <iframe
+    class="google-reviews"
+    src="https://widgets.sociablekit.com/google-reviews/iframe/25447595"
+    (error)="handleIframeError()"
+    *ngIf="iframeLoaded"
+  ></iframe>
+  <div *ngIf="!iframeLoaded">
+    <p>
+      Le contenu des avis clients n'a pas pu être chargé. Veuillez réessayer
+      plus tard.
+    </p>
+  </div>
+</section>
