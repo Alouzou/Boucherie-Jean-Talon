@@ -4,6 +4,7 @@ section {
 
 .tbone {
   position: absolute;
+  display: none;
   width: 250px;
   height: 200px;
   top: -100px;
@@ -34,7 +35,7 @@ section {
   position: relative;
   font-family: "Nunito", sans-serif;
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .wrapper h1::after {
@@ -124,7 +125,7 @@ input {
 }
 
 input:checked + label {
-  width: 600px;
+  width: 800px;
 }
 
 input:checked + label .description {
