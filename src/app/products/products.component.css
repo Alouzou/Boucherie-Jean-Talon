@@ -96,22 +96,22 @@
 }
 
 .fruits {
-  background-image: url(/assets/images/17.jpg);
+  background-image: url(/images/17.jpg);
   background-size: cover;
   background-position: center;
 }
 .viandes {
-  background-image: url(/assets/images/10.jpg);
+  background-image: url(/images/10.jpg);
   background-size: cover;
   background-position: center;
 }
 .volaille {
-  background-image: url(/assets/images/3.jpg);
+  background-image: url(/images/3.jpg);
   background-size: cover;
   background-position: center;
 }
 .épicerie {
-  background-image: url(/assets/images/16.jpg);
+  background-image: url(/images/16.jpg);
   background-size: cover;
   background-position: center;
 }

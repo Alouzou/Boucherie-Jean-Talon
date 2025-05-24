@@ -55,7 +55,7 @@
 .home .intro_image {
   height: 400px;
   width: 40%;
-  background-image: url("/assets/images/10.jpg");
+  background-image: url("/images/10.jpg");
   background-size: cover;
   border-radius: 10px 10px 10px 100px;
   background-position: center;
@@ -162,7 +162,8 @@
 /* ========================= */
 
 .hero {
-  background-image: url("/assets/images/10.jpg");
+  /* background-image: url("/../assets/images/10.jpg"); */
+  background-image: url(/images/10.jpg);
   background-size: cover;
   background-position: center;
   height: 600px;

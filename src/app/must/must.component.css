@@ -134,13 +134,13 @@ input:checked + label .description {
 }
 
 .card[for="c1"] {
-  background-image: url("/assets/images/merguez.jpg");
+  background-image: url(/images/merguez.jpg);
 }
 .card[for="c2"] {
-  background-image: url("/assets/images/19.jpg");
+  background-image: url(/images/19.jpg);
 }
 .card[for="c3"] {
-  background-image: url("/assets/images/6.jpg");
+  background-image: url(/images/6.jpg);
 }
 
 @media (max-width: 870px) {
