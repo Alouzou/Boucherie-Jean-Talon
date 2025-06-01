@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Boucherie Jean Talon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/LOGO_BOUCHERIE.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo_container">
+        <div class="logo_img"></div>
+        <a class="logo" href="#home">Boucherie Jean Talon</a>
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <a href="#home">Accueil</a>
+        <a href="#must">Merguez</a>
+        <a href="#produits">Produits</a>
+        <a href="gallerie.html">Gallerie</a>
+        <a href="#testimonials">Avis</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="icons" id="menuIcon">
+        <img src="assets/images/more.webp" alt="Menu" />
+      </div>
+    </header>
+    <section class="wrapper" id="home">
+      <section class="hero">
+        <div class="hero-overlay">
+          <h1>Boucherie Jean Talon</h1>
+          <p class="signature">Chez Koceila</p>
+          <a href="#produits" class="btn">Voir nos produits</a>
+        </div>
+      </section>
+    </section>
+    <section class="about-mission-section">
+      <div class="about-mission-container">
+        <div class="about-box">
+          <h2>À propos de nous</h2>
+          <p>
+            À la Boucherie Jean Talon, nous proposons des viandes halal
+            artisanales, des produits frais et savoureux, ainsi qu’un éventail
+            de spécialités maghrébines. Notre priorité : qualité, authenticité
+            et service personnalisé.
+          </p>
+        </div>
+
+        <div class="mission-box">
+          <h2>Notre mission</h2>
+          <p>
+            Notre mission est d’offrir des viandes de qualité et des produits
+            authentiques qui inspirent vos plats au quotidien. Fraîcheur,
+            savoir-faire et passion sont au cœur de notre engagement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section style="position: relative" id="must">
+      <h1 class="">Des merguez pour tous les goûts</h1>
+      <div class="carousel">
+        <div class="carousel-slide active">
+          <img src="assets/images/merguez.webp" alt="Merguez de boeuf" />
+          <div class="caption">
+            <h3>Merguez de bœuf</h3>
+            <p>
+              Puissance et saveur, nos merguez de bœuf pour un plaisir intense.
+            </p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="assets/images/19.webp" alt="Saucisse maison" />
+          <div class="caption">
+            <h3>Merguez d'agneau</h3>
+            <p>L'agneau à l'état pur, en merguez délicatement épicées.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="assets/images/6.webp" alt="Saucisse maison" />
+          <div class="caption">
+            <h3>Merguez de poulet</h3>
+            <p>Pour des grillades légères, choisissez nos merguez de poulet.</p>
+          </div>
+        </div>
+
+        <button class="carousel-btn prev" (click)="onPrevClick()">
+          &#10094;
+        </button>
+        <button class="carousel-btn next" (click)="onNextClick()">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <section class="services-section" id="produits">
+      <h1>Nos produits et spécialités</h1>
+      <p class="intro">
+        Découvrez les services de la Boucherie Jean Talon : une viande fraîche
+        et de qualité, un large choix de volailles préparées avec soin, ainsi
+        qu'une sélection de fruits, légumes et produits d'épicerie maghrébins et
+        locaux. Tout pour sublimer votre cuisine avec authenticité.
+      </p>
+
+      <div class="services-grid">
+        <div class="service service-img img1">
+          <img src="assets/images/10.webp" alt="Steak with lime" />
+        </div>
+        <div class="service service-text text1">
+          <h2>Viandes</h2>
+          <p>
+            Chez nous, vous trouverez de la viande fraîche de qualité. Veau,
+            agneau, bœuf — tout est soigneusement sélectionné. Que vous
+            cherchiez une pièce tendre ou une coupe spéciale, on a ce qu’il vous
+            faut.
+          </p>
+        </div>
+
+        <div class="service service-text text2">
+          <h2>Volaille</h2>
+          <p>
+            Chez nous, vous trouverez un large choix de volailles fraîches,
+            préparées avec soin. Pilons, cuisses, poitrines, poulet entier,
+            hauts de cuisses, ailes, foie, gésier ou poulet haché — il y en a
+            pour tous les goûts.
+          </p>
+        </div>
+        <div class="service service-img img2">
+          <img src="assets/images/3.webp" alt="Raw meat on a wooden board" />
+        </div>
+
+        <div class="service service-img img3">
+          <img src="assets/images/17.webp" alt="Lamb leg with seasoning" />
+        </div>
+        <div class="service service-text text3">
+          <h2>Fruits, légumes et épicerie</h2>
+          <p>
+            Des fruits et légumes frais, pleins de goût et choisis avec soin.
+            Des classiques de saison aux produits exotiques, tout est là pour
+            cuisiner ou grignoter sainement. l’épicerie est pleine de saveurs et
+            de traditions. Vous y trouverez des produits du Maghreb — Algérie,
+            Tunisie, Maroc — ainsi que des produits locaux de qualité. Tajines,
+            bar à olives en libre-service, ou coin des noix : il y en a pour
+            tous les goûts.
+          </p>
+        </div>
+      </div>
+      <div class="more-photos">
+        <a class="more-photos-btn" href="gallerie.html">Voir plus de photos</a>
+      </div>
+    </section>
+
+    <section class="section3">
+      <div class="livraison box zoom-in-on-scroll">
+        <img src="assets/images/livraison.webp" alt="" />
+        <h3>Livraison gratuite</h3>
+        <p>
+          Profitez de notre service de livraison gratuite
+          <!-- pour vos commandes de
+      viande et produits frais. -->
+        </p>
+      </div>
+      <div class="qualité box zoom-in-on-scroll">
+        <img src="assets/images/qualité2.webp" alt="" />
+        <h3>Viande de qualité</h3>
+        <p>
+          Nous sélectionnons soigneusement des viandes de qualité
+          <!-- supérieure pour
+      garantir votre satisfaction. -->
+        </p>
+      </div>
+      <div class="halal box zoom-in-on-scroll">
+        <img src="assets/images/halal.webp" alt="" />
+        <h3>Certifiée Halal</h3>
+        <p>
+          Tous nos produits sont certifiés halal
+          <!-- garantissant ainsi le respect de
+      vos choix alimentaires. -->
+        </p>
+      </div>
+    </section>
+
+    <section class="slogan-banner">
+      <div class="slogan-overlay">
+        <h2>Gardez votre calme et passez en cuisine</h2>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2>Découverez ce que nos clients disent de nous.</h2>
+      <iframe
+        class="google-reviews"
+        src="https://widgets.sociablekit.com/google-reviews/iframe/25447595"
+      ></iframe>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#home">Accueil</a></li>
+              <li><a href="#produits">Produits</a></li>
+              <li><a href="#gallerie">Gallerie</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Horaires</h4>
+            <ul>
+              <li>Samedi - Jeudi : 9h-21h</li>
+              <li>Vendredi : 9h-13h 14h-21h</li>
+            </ul>
+          </div>
+          <div class="footer-col contacts">
+            <h4>Contacts</h4>
+            <ul>
+              <li>
+                <img src="assets/images/map.webp" alt="" /> 1825 Rue Jean-Talon
+                E, Montréal, QC H2E 1T4
+              </li>
+              <li>
+                <img src="assets/images/call.webp" alt="" /> +1 438 381 8181
+              </li>
+              <li>
+                <img src="assets/images/email.webp" alt="" />
+                Boucherie.jeantalon&#64;gmail.com
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Suivez nous</h4>
+            <div class="social_media">
+              <a
+                target="_blank"
+                href="https://www.facebook.com/people/Boucherie-Jean-Talon/100065185531222/"
+                ><img src="assets/images/facebook.webp" alt="Facebook"
+              /></a>
+              <img src="assets/images/instagram.webp" alt="Instagram" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
