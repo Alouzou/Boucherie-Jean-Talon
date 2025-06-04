@@ -348,6 +348,7 @@ a {
   font-size: 2rem;
   margin-bottom: 1rem;
   font-weight: 600;
+  color: black;
 }
 
 .about-box p,
@@ -507,11 +508,17 @@ a {
   }
 }
 /* ====== produits ====== */
+.services-wrapper {
+  position: relative;
+  background-color: white;
+}
+
 .services-section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
   text-align: center;
+  color: black;
   font-family: "Georgia", serif;
   background-color: #f9f9f9;
 }
@@ -519,6 +526,7 @@ a {
 .services-section h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  color: black;
 }
 
 .intro {
