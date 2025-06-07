@@ -759,7 +759,7 @@ a {
   top: -1px;
   width: 150px;
   height: 100px;
-  background-image: url("../../assets/images/quotes.webp");
+  background-image: url("assets/images/quotes.webp");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1050,6 +1050,7 @@ footer .row {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 10px;
 }
 
 .contact-form label {
