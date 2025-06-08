@@ -506,6 +506,9 @@ a {
     height: 100%;
     object-fit: cover;
   }
+  #must h1 {
+    font-size: 1.8rem;
+  }
 }
 /* ====== produits ====== */
 .services-wrapper {
