@@ -542,7 +542,7 @@ a {
 .services-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
   row-gap: 5em;
   text-align: left;
 }
@@ -600,6 +600,24 @@ a {
       "img3"
       "text3";
   }
+  .img1 {
+    grid-area: img1;
+  }
+  .text1 {
+    grid-area: text1;
+  }
+  .img2 {
+    grid-area: img2;
+  }
+  .text2 {
+    grid-area: text2;
+  }
+  .img3 {
+    grid-area: img3;
+  }
+  .text3 {
+    grid-area: text3;
+  }
 }
 
 /* ========== quality ==== */
@@ -608,7 +626,7 @@ a {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  padding: 2%;
+  padding: 5% 2%;
   gap: 2%;
 }
 .animate__animated {
