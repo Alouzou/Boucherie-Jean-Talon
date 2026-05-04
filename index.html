@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="icon" type="image/png" href="assets/images/logo_sans_bg.png" />
     <script>
       tailwind.config = {
         theme: {
@@ -131,7 +132,7 @@
       id="accueil"
       class="bg-gradient-to-br from-primary to-red-800 text-white py-64 mt-20 relative overflow-hidden"
       style="
-        background-image: url('assets/images/10c.webp');
+        background-image: url(&quot;assets/images/10c.webp&quot;);
         background-size: cover;
         opacity: 1;
         background-position: center;
@@ -250,7 +251,7 @@
                   <div
                     class="h-80 md:h-96 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center"
                     style="
-                      background-image: url('assets/images/merguez-mix.webp');
+                      background-image: url(&quot;assets/images/merguez-mix.webp&quot;);
                       background-size: cover;
                       opacity: 1;
                       background-position: center;
@@ -284,7 +285,7 @@
                   <div
                     class="h-80 md:h-96 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center"
                     style="
-                      background-image: url('assets/images/merguez-agn.webp');
+                      background-image: url(&quot;assets/images/merguez333.webp&quot;);
                       background-size: cover;
                       opacity: 1;
                       background-position: center;
@@ -318,7 +319,7 @@
                   <div
                     class="h-80 md:h-96 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center"
                     style="
-                      background-image: url('assets/images/merguez2.webp');
+                      background-image: url(&quot;assets/images/6.webp&quot;);
                       background-size: cover;
                       opacity: 1;
                       background-position: center;
@@ -607,7 +608,7 @@
     <section
       class="py-20 bg-gradient-to-r from-primary to-red-800 text-white relative overflow-hidden"
       style="
-        background-image: url('assets/images/4.webp');
+        background-image: url(&quot;assets/images/4.webp&quot;);
         background-size: cover;
         background-position: center;
       "
@@ -849,7 +850,10 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             class="w-full h-64 md:h-96"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'block';
+            "
           >
           </iframe>
 
@@ -1255,7 +1259,7 @@
 
           setTimeout(() => {
             alert(
-              "Merci pour votre message ! Nous vous répondrons dans les plus brefs délais."
+              "Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.",
             );
             this.reset();
             button.innerHTML = originalText;

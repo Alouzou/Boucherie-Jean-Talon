@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -31,7 +31,9 @@
 
       .gallery-item {
         aspect-ratio: 1;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
 
       .gallery-item:hover {
@@ -305,6 +307,11 @@
     <script>
       const imageData = [
         {
+          src: "assets/images/10cc.webp",
+          category: "magasin",
+          title: "Facade exterieur",
+        },
+        {
           src: "assets/images/merguez333.webp",
           category: "merguez",
           title: "Merguez artisanales",
@@ -312,12 +319,12 @@
         {
           src: "assets/images/1.webp",
           category: "viandes",
-          title: "Viande fraîche premium",
+          title: "Côtes de bœuf",
         },
         {
           src: "assets/images/2.webp",
           category: "viandes",
-          title: "Sélection de bœuf",
+          title: "T-bone de veau",
         },
         {
           src: "assets/images/3.webp",
@@ -327,32 +334,32 @@
         {
           src: "assets/images/4.webp",
           category: "viandes",
-          title: "Agneau de qualité",
+          title: "Veau de qualité",
         },
         {
           src: "assets/images/5.webp",
-          category: "merguez",
-          title: "Spécialités grillées",
+          category: "volailles",
+          title: "Poitrine de poulet",
         },
         {
           src: "assets/images/6.webp",
-          category: "volailles",
-          title: "Poulet préparé",
+          category: "merguez",
+          title: "Merguez de poulet",
         },
         {
           src: "assets/images/7.webp",
           category: "viandes",
-          title: "Découpe traditionnelle",
+          title: "Merguez de poulet grillé",
         },
         {
           src: "assets/images/8.webp",
-          category: "epicerie",
-          title: "Épices et condiments",
+          category: "épicerie",
+          title: "Bar à olives",
         },
         {
           src: "assets/images/9.webp",
           category: "viandes",
-          title: "Viande hachée fraîche",
+          title: "Filet mignon de veau",
         },
         {
           src: "assets/images/10.webp",
@@ -366,38 +373,38 @@
         },
         {
           src: "assets/images/12.webp",
-          category: "merguez",
-          title: "Saucisses maison",
+          category: "abats",
+          title: "Foie de veau",
         },
         {
           src: "assets/images/13.webp",
-          category: "epicerie",
-          title: "Fruits et légumes",
+          category: "viandes",
+          title: "Contre-filet de bœuf ",
         },
         {
           src: "assets/images/14.webp",
           category: "viandes",
-          title: "Côtelettes d'agneau",
+          title: "Jarret de veau",
         },
         {
           src: "assets/images/15.webp",
-          category: "epicerie",
-          title: "Produits d'épicerie",
+          category: "viandes",
+          title: "Agneau frais",
         },
         {
           src: "assets/images/16.webp",
-          category: "volailles",
-          title: "Spécialités de poulet",
+          category: "épicerie",
+          title: "Produits d'épicerie",
         },
         {
           src: "assets/images/17.webp",
-          category: "viandes",
-          title: "Gigot d'agneau",
+          category: "fruits et légumes",
+          title: "Fruits et légumes",
         },
         {
           src: "assets/images/18.webp",
-          category: "epicerie",
-          title: "Produits du terroir",
+          category: "épicerie",
+          title: "Produits divers",
         },
       ];
 
@@ -440,7 +447,7 @@
                 <div class="absolute bottom-4 left-4 text-white">
                   <h3 class="font-bold text-lg">${imageData.title}</h3>
                   <p class="text-sm opacity-80">${getCategoryDisplayName(
-                    imageData.category
+                    imageData.category,
                   )}</p>
                 </div>
                 <div class="absolute top-4 right-4">
@@ -465,7 +472,7 @@
         });
 
         const clickedBtn = document.querySelector(
-          `[onclick="filterImages('${category}')"]`
+          `[onclick="filterImages('${category}')"]`,
         );
         if (clickedBtn) {
           clickedBtn.classList.remove("bg-gray-200", "text-gray-700");
