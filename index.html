@@ -6,6 +6,53 @@
     <title>
       Boucherie Jean Talon - Chez Koceila | Viandes Halal de Qualité
     </title>
+    <meta
+      name="description"
+      content="Boucherie halal à Montréal, sur Jean-Talon Est (métro Fabre). Merguez artisanales, bœuf, agneau, veau, volaille et épicerie maghrébine. Livraison gratuite."
+    />
+    <link rel="canonical" href="https://boucheriejeantalon.ca/" />
+    <meta name="theme-color" content="#a83232" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:site_name"
+      content="Boucherie Jean Talon — Chez Koceila"
+    />
+    <meta property="og:locale" content="fr_CA" />
+    <meta property="og:url" content="https://boucheriejeantalon.ca/" />
+    <meta
+      property="og:title"
+      content="Boucherie Jean Talon — Chez Koceila | Viandes halal à Montréal"
+    />
+    <meta
+      property="og:description"
+      content="Boucherie halal à Montréal, sur Jean-Talon Est (métro Fabre). Merguez artisanales, bœuf, agneau, veau, volaille et épicerie maghrébine. Livraison gratuite."
+    />
+    <meta
+      property="og:image"
+      content="https://boucheriejeantalon.ca/assets/images/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Côte de bœuf fraîche sur une planche à découper"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Boucherie Jean Talon — Chez Koceila | Viandes halal à Montréal"
+    />
+    <meta
+      name="twitter:description"
+      content="Merguez artisanales, viandes halal et épicerie maghrébine sur Jean-Talon Est, Montréal. Livraison gratuite dans un rayon de 10 km."
+    />
+    <meta
+      name="twitter:image"
+      content="https://boucheriejeantalon.ca/assets/images/og-image.jpg"
+    />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -20,11 +67,82 @@
               primary: "#a83232",
               secondary: "#2C1810",
               accent: "#D4AF37",
-              green: "#22C55E",
+              olive: "#4A6B32",
+              whatsapp: "#25D366",
             },
           },
         },
       };
+    </script>
+    <style>
+      /* Décale les ancres pour qu'elles ne passent pas sous la nav fixe */
+      section[id] {
+        scroll-margin-top: 6rem;
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "GroceryStore",
+        "@id": "https://boucheriejeantalon.ca/#boucherie",
+        "name": "Boucherie Jean Talon — Chez Koceila",
+        "description": "Boucherie halal et épicerie maghrébine à Montréal : merguez artisanales, bœuf, agneau, veau, volaille, fruits et légumes.",
+        "url": "https://boucheriejeantalon.ca/",
+        "telephone": "+1-438-381-8181",
+        "email": "boucherie.jeantalon@gmail.com",
+        "image": "https://boucheriejeantalon.ca/assets/images/og-image.jpg",
+        "logo": "https://boucheriejeantalon.ca/assets/images/logo_sans_bg.png",
+        "priceRange": "$$",
+        "currenciesAccepted": "CAD",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1825 Rue Jean-Talon E",
+          "addressLocality": "Montréal",
+          "addressRegion": "QC",
+          "postalCode": "H2E 1T4",
+          "addressCountry": "CA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 45.5482879,
+          "longitude": -73.6095304
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Montréal"
+        },
+        "sameAs": [
+          "https://www.facebook.com/people/Boucherie-Jean-Talon/100065185531222/"
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Saturday",
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday"
+            ],
+            "opens": "09:00",
+            "closes": "21:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Friday",
+            "opens": "09:00",
+            "closes": "13:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Friday",
+            "opens": "14:00",
+            "closes": "21:00"
+          }
+        ]
+      }
     </script>
   </head>
   <body class="font-sans">
@@ -35,12 +153,15 @@
             <div
               class="w-12 h-12 bg-gradient-to-br p-1 from-primary to-red-600 rounded-xl shadow-lg flex items-center justify-center"
             >
-              <img src="assets/images/logo_sans_bg.png" alt="" />
+              <img
+                src="assets/images/logo_sans_bg.png"
+                alt="Logo Boucherie Jean Talon"
+              />
             </div>
             <div>
-              <h1 class="text-xl font-bold text-secondary">
+              <div class="text-xl font-bold text-secondary">
                 Boucherie Jean Talon
-              </h1>
+              </div>
               <p class="text-sm text-primary font-semibold">Chez Koceila</p>
             </div>
           </div>
@@ -63,7 +184,7 @@
             <a
               href="gallerie.html"
               class="text-secondary hover:text-primary transition-colors"
-              >Images</a
+              >Galerie</a
             >
             <a
               href="#about"
@@ -81,8 +202,15 @@
               >Contact</a
             >
           </div>
-          <button class="md:hidden text-secondary" onclick="toggleMobileMenu()">
-            <i class="fas fa-bars text-xl"></i>
+          <button
+            id="mobileMenuBtn"
+            class="md:hidden text-secondary"
+            onclick="toggleMobileMenu()"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <i class="fas fa-bars text-xl" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -101,7 +229,7 @@
             <a
               href="gallerie.html"
               class="block text-secondary hover:text-primary px-4 py-2"
-              >Images</a
+              >Galerie</a
             >
             <a
               href="#produits"
@@ -225,9 +353,11 @@
     <section id="merguez" class="py-20 bg-gray-50 relative">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h1 class="text-2xl font-bold text-secondary mb-2">
+          <p
+            class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3"
+          >
             Nos incontournables
-          </h1>
+          </p>
           <h2 class="text-4xl font-bold text-secondary mb-4">
             Des merguez pour tous les goûts
           </h2>
@@ -352,28 +482,33 @@
 
           <button
             onclick="prevSlide()"
+            aria-label="Merguez précédente"
             class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all z-10"
           >
-            <i class="fas fa-chevron-left"></i>
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
           </button>
           <button
             onclick="nextSlide()"
+            aria-label="Merguez suivante"
             class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all z-10"
           >
-            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
           </button>
 
           <div class="flex justify-center mt-8 space-x-2">
             <button
               onclick="goToSlide(0)"
+              aria-label="Aller à la merguez de bœuf"
               class="carousel-dot w-3 h-3 rounded-full bg-primary transition-all"
             ></button>
             <button
               onclick="goToSlide(1)"
+              aria-label="Aller à la merguez d'agneau"
               class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-primary transition-all"
             ></button>
             <button
               onclick="goToSlide(2)"
+              aria-label="Aller à la merguez de poulet"
               class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-primary transition-all"
             ></button>
           </div>
@@ -476,10 +611,15 @@
             <div
               class="h-64 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center relative overflow-hidden"
             >
+              <img
+                src="assets/images/10.webp"
+                alt="Pièces de bœuf, veau et agneau frais en vitrine"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
               <div
                 class="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"
               ></div>
-              <img src="assets/images/10.webp" alt="" />
             </div>
             <div class="p-6">
               <h3 class="text-2xl font-bold text-secondary mb-3">Viandes</h3>
@@ -512,10 +652,15 @@
             <div
               class="h-64 bg-gradient-to-br from-yellow-100 to-orange-200 flex items-center justify-center relative overflow-hidden"
             >
+              <img
+                src="assets/images/3.webp"
+                alt="Volailles fraîches préparées en boucherie"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
               <div
                 class="absolute inset-0 bg-gradient-to-l from-primary/20 to-transparent"
               ></div>
-              <img src="assets/images/3.webp" alt="" />
             </div>
             <div class="p-6">
               <h3 class="text-2xl font-bold text-secondary mb-3">Volaille</h3>
@@ -547,14 +692,17 @@
           >
             <div class="grid md:grid-cols-2">
               <div
-                class="h-64 md:h-auto bg-gradient-to-br from-green-100 to-blue-200 flex items-center justify-center relative overflow-hidden"
+                class="h-64 md:h-auto md:min-h-[20rem] bg-gradient-to-br from-green-100 to-blue-200 relative overflow-hidden"
               >
+                <img
+                  src="assets/images/17.webp"
+                  alt="Étal de fruits et légumes frais"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <div
                   class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"
                 ></div>
-                <div class="text-center z-10">
-                  <img src="assets/images/17.webp" alt="" />
-                </div>
               </div>
               <div class="p-6 flex flex-col justify-center">
                 <h3 class="text-2xl font-bold text-secondary mb-3">
@@ -574,15 +722,15 @@
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
                   <span
-                    class="bg-green/10 text-green px-3 py-1 rounded-full text-sm font-medium"
+                    class="bg-olive/10 text-olive px-3 py-1 rounded-full text-sm font-medium"
                     >Produits du Maghreb</span
                   >
                   <span
-                    class="bg-green/10 text-green px-3 py-1 rounded-full text-sm font-medium"
+                    class="bg-olive/10 text-olive px-3 py-1 rounded-full text-sm font-medium"
                     >Fruits & Légumes</span
                   >
                   <span
-                    class="bg-green/10 text-green px-3 py-1 rounded-full text-sm font-medium"
+                    class="bg-olive/10 text-olive px-3 py-1 rounded-full text-sm font-medium"
                     >Bar à olives</span
                   >
                 </div>
@@ -683,7 +831,7 @@
                   meilleures merguez au Canada. Tous leurs produits sont
                   excellents, et leur service est tout simplement impeccable…"
                 </p>
-                <div class="mt-4 text-xs text-gray-400">Il y a 2 semaines</div>
+                <div class="mt-4 text-xs text-gray-500">Il y a 2 semaines</div>
               </div>
 
               <div class="bg-white rounded-lg p-6 shadow-lg">
@@ -711,7 +859,7 @@
                   côtelettes d’agneaux qui semblaient très bonnes. J’ai eu un
                   très bon service ."
                 </p>
-                <div class="mt-4 text-xs text-gray-400">Il y a 8 mois</div>
+                <div class="mt-4 text-xs text-gray-500">Il y a 8 mois</div>
               </div>
 
               <div class="bg-white rounded-lg p-6 shadow-lg">
@@ -742,7 +890,7 @@
                   Continuez ainsi vous êtes sur le bon chemin bonne
                   continuation"
                 </p>
-                <div class="mt-4 text-xs text-gray-400">Il y a 3 mois</div>
+                <div class="mt-4 text-xs text-gray-500">Il y a 3 mois</div>
               </div>
             </div>
 
@@ -1013,21 +1161,20 @@
                 <a
                   href="https://www.facebook.com/people/Boucherie-Jean-Talon/100065185531222/"
                   target="_blank"
+                  rel="noopener"
+                  aria-label="Notre page Facebook"
                   class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
                 >
-                  <i class="fab fa-facebook-f"></i>
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
                 </a>
                 <a
-                  href="#"
-                  class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white hover:bg-pink-700 transition-colors"
+                  href="https://wa.me/14383818181?text=Bonjour%20%21%20J%27aimerais%20avoir%20des%20informations%20sur%20vos%20produits."
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Nous écrire sur WhatsApp"
+                  class="w-12 h-12 bg-whatsapp rounded-full flex items-center justify-center text-white hover:brightness-90 transition-all"
                 >
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a
-                  href="#"
-                  class="w-12 h-12 bg-green rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors"
-                >
-                  <i class="fab fa-whatsapp"></i>
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
@@ -1060,21 +1207,20 @@
               <a
                 href="https://www.facebook.com/people/Boucherie-Jean-Talon/100065185531222/"
                 target="_blank"
+                rel="noopener"
+                aria-label="Notre page Facebook"
                 class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
-                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
               </a>
               <a
-                href="#"
-                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                href="https://wa.me/14383818181?text=Bonjour%20%21%20J%27aimerais%20avoir%20des%20informations%20sur%20vos%20produits."
+                target="_blank"
+                rel="noopener"
+                aria-label="Nous écrire sur WhatsApp"
+                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-whatsapp transition-colors"
               >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
-              >
-                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -1107,7 +1253,7 @@
                 <a
                   href="gallerie.html"
                   class="text-gray-300 hover:text-white transition-colors"
-                  >Images</a
+                  >Galerie</a
                 >
               </li>
 
@@ -1165,8 +1311,8 @@
 
         <div class="border-t border-white/20 mt-12 pt-8 text-center">
           <p class="text-gray-300">
-            &copy; 2024 Boucherie Jean Talon - Chez Koceila. Tous droits
-            réservés.
+            &copy; <span id="year">2026</span> Boucherie Jean Talon - Chez
+            Koceila. Tous droits réservés.
           </p>
         </div>
       </div>
@@ -1174,9 +1320,10 @@
 
     <button
       id="scrollTop"
+      aria-label="Revenir en haut de la page"
       class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 hidden transform hover:scale-110"
     >
-      <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <script>
@@ -1185,8 +1332,13 @@
 
       function toggleMobileMenu() {
         const mobileMenu = document.getElementById("mobileMenu");
-        mobileMenu.classList.toggle("hidden");
+        const isOpen = mobileMenu.classList.toggle("hidden") === false;
+        const btn = document.getElementById("mobileMenuBtn");
+        btn.setAttribute("aria-expanded", String(isOpen));
+        btn.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
       }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
 
       function scrollToSection(sectionId) {
         document.getElementById(sectionId).scrollIntoView({
@@ -1226,7 +1378,28 @@
         updateCarousel();
       }
 
-      setInterval(nextSlide, 5000);
+      // Défilement auto, mis en pause au survol, au focus clavier et quand
+      // l'onglet est masqué (WCAG 2.2.2 : l'utilisateur doit pouvoir stopper).
+      let carouselTimer = null;
+      const carouselEl = document.querySelector(".carousel-container")
+        .parentElement;
+
+      function startCarousel() {
+        if (carouselTimer === null) carouselTimer = setInterval(nextSlide, 5000);
+      }
+      function stopCarousel() {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+
+      carouselEl.addEventListener("mouseenter", stopCarousel);
+      carouselEl.addEventListener("mouseleave", startCarousel);
+      carouselEl.addEventListener("focusin", stopCarousel);
+      carouselEl.addEventListener("focusout", startCarousel);
+      document.addEventListener("visibilitychange", () => {
+        document.hidden ? stopCarousel() : startCarousel();
+      });
+      startCarousel();
 
       const scrollTopBtn = document.getElementById("scrollTop");
 
@@ -1301,12 +1474,22 @@
         });
       }, observerOptions);
 
-      document.querySelectorAll("section").forEach((section) => {
-        section.style.opacity = "0";
-        section.style.transform = "translateY(30px)";
-        section.style.transition = "opacity 0.8s ease, transform 0.8s ease";
-        observer.observe(section);
-      });
+      // On n'anime que les sections situées SOUS la ligne de flottaison : masquer
+      // celles déjà visibles provoquait un flash blanc au chargement, et laissait
+      // la page entièrement vide si le JS échouait.
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (!prefersReducedMotion) {
+        document.querySelectorAll("section").forEach((section) => {
+          if (section.getBoundingClientRect().top < window.innerHeight) return;
+          section.style.opacity = "0";
+          section.style.transform = "translateY(30px)";
+          section.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+          observer.observe(section);
+        });
+      }
 
       document.addEventListener("DOMContentLoaded", function () {
         updateCarousel();
