@@ -99,6 +99,20 @@
         height: 100%;
         object-fit: cover;
       }
+
+      /* Barre d'action mobile : on respecte la zone sûre (encoche / barre
+         gestuelle iOS). Le repli ci-dessous est volontairement généreux, la
+         hauteur exacte étant posée ensuite par ajusterEspaceBarreMobile(). */
+      .barre-mobile {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      @media (max-width: 767px) {
+        body {
+          padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+        }
+      }
     </style>
   </head>
   <body class="font-sans bg-gray-50">
@@ -390,7 +404,63 @@
       </div>
     </footer>
 
+    <!-- Barre d'action fixe, mobile uniquement. Identique à celle de la page
+         d'accueil. -->
+    <nav
+      class="barre-mobile md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-gray-200"
+      aria-label="Actions rapides"
+    >
+      <div class="grid grid-cols-3">
+        <a
+          href="tel:+14383818181"
+          class="flex flex-col items-center justify-center gap-1 py-3 text-secondary active:bg-gray-100 transition-colors"
+        >
+          <i class="fas fa-phone text-primary text-lg" aria-hidden="true"></i>
+          <span class="text-xs font-semibold">Appeler</span>
+        </a>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=1825%20Rue%20Jean-Talon%20E%2C%20Montr%C3%A9al%2C%20QC%20H2E%201T4"
+          target="_blank"
+          rel="noopener"
+          class="flex flex-col items-center justify-center gap-1 py-3 text-secondary border-x border-gray-200 active:bg-gray-100 transition-colors"
+        >
+          <i
+            class="fas fa-location-arrow text-primary text-lg"
+            aria-hidden="true"
+          ></i>
+          <span class="text-xs font-semibold">Itinéraire</span>
+        </a>
+        <a
+          href="https://wa.me/14383818181?text=Bonjour%20%21%20Je%20souhaite%20passer%20une%20commande."
+          target="_blank"
+          rel="noopener"
+          class="flex flex-col items-center justify-center gap-1 py-3 text-secondary active:bg-gray-100 transition-colors"
+        >
+          <i
+            class="fab fa-whatsapp text-whatsapp text-xl"
+            aria-hidden="true"
+          ></i>
+          <span class="text-xs font-semibold">WhatsApp</span>
+        </a>
+      </div>
+    </nav>
+
     <script>
+      // Réserve en bas de page exactement la hauteur de la barre d'action
+      // mobile, dont la hauteur varie avec la taille de police et la zone
+      // sûre iOS.
+      function ajusterEspaceBarreMobile() {
+        const barre = document.querySelector(".barre-mobile");
+        if (!barre) return;
+        const affichee = getComputedStyle(barre).display !== "none";
+        document.body.style.paddingBottom = affichee
+          ? barre.offsetHeight + "px"
+          : "";
+      }
+
+      ajusterEspaceBarreMobile();
+      window.addEventListener("resize", ajusterEspaceBarreMobile);
+
       const imageData = [
         {
           src: "assets/images/10cc.webp",

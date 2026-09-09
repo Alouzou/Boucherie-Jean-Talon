@@ -80,6 +80,57 @@
         scroll-margin-top: 6rem;
       }
 
+      /* Pastille du statut d'ouverture. En CSS explicite plutôt qu'en classes
+         Tailwind : elle est posée par JavaScript après le chargement, donc le
+         JIT du CDN ne la verrait pas dans le balisage initial. */
+      .pastille {
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 9999px;
+        flex-shrink: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+      .pastille-ouvert {
+        background-color: #22c55e;
+        animation: pastille-pulse 2s infinite;
+      }
+      .pastille-ferme {
+        background-color: #f87171;
+      }
+      @keyframes pastille-pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .pastille-ouvert {
+          animation: none;
+        }
+      }
+
+      /* Barre d'action mobile : on respecte la zone sûre (encoche / barre
+         gestuelle iOS) et on libère la hauteur correspondante en bas de page
+         pour ne pas recouvrir le pied de page. */
+      .barre-mobile {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Repli sans JavaScript, volontairement un peu généreux : mieux vaut un
+         espace de trop qu'un pied de page passant sous la barre. La hauteur
+         exacte est ensuite posée par ajusterEspaceBarreMobile(). */
+      @media (max-width: 767px) {
+        body {
+          padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+        }
+      }
+
       /* Aperçu flouté (0,9 Ko, inline) affiché instantanément sous la photo
          du hero : évite le fond gris pendant le téléchargement de l'image. */
       .hero-accueil {
@@ -290,7 +341,7 @@
 
     <section
       id="accueil"
-      class="hero-accueil bg-secondary text-white py-64 mt-20 relative overflow-hidden"
+      class="hero-accueil bg-secondary text-white py-24 md:py-64 mt-20 relative overflow-hidden"
     >
       <img
         src="assets/images/hero-1280.webp"
@@ -314,23 +365,45 @@
           <p class="text-2xl md:text-3xl mb-6 opacity-90 font-semibold">
             Chez Koceila
           </p>
-          <p class="text-xl md:text-2xl mb-8 opacity-90">
+          <p class="text-xl md:text-2xl mb-6 opacity-90">
             Viandes artisanales & spécialités maghrébines
           </p>
+
+          <!-- Statut calculé à l'heure de Montréal. Le contenu ci-dessous est
+               le repli affiché si le JavaScript ne s'exécute pas. -->
+          <div class="flex justify-center mb-8">
+            <div
+              id="statutOuverture"
+              role="status"
+              class="inline-flex items-center gap-2.5 bg-black/40 backdrop-blur-sm border border-white/25 rounded-full px-5 py-2.5"
+            >
+              <span id="statutPastille" class="pastille"></span>
+              <span id="statutTexte" class="text-sm md:text-base font-semibold"
+                >Ouvert 7 j/7 · 9 h – 21 h</span
+              >
+            </div>
+          </div>
+
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+14383818181"
+              class="inline-flex items-center justify-center gap-3 bg-accent text-secondary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 transition-colors"
+            >
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              438 381-8181
+            </a>
             <button
               onclick="scrollToSection('produits')"
-              class="bg-accent text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 transition-colors"
+              class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-secondary transition-colors"
             >
               Voir nos produits
             </button>
-            <button
-              onclick="scrollToSection('contact')"
-              class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-colors"
-            >
-              Nous contacter
-            </button>
           </div>
+
+          <p class="mt-8 text-sm md:text-base opacity-85">
+            <i class="fas fa-location-dot mr-2" aria-hidden="true"></i>
+            1825 rue Jean-Talon Est, Montréal — en face du métro Fabre
+          </p>
         </div>
       </div>
     </section>
@@ -799,6 +872,7 @@
     </section>
 
     <section
+      id="commander"
       class="cta-calme bg-secondary text-white py-20 relative overflow-hidden"
     >
       <img
@@ -814,26 +888,50 @@
         decoding="async"
         class="absolute inset-0 w-full h-full object-cover"
       />
-      <div class="absolute inset-0 bg-black/40"></div>
-      <div class="container mx-auto px-4 text-center relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">Gardez votre calme</h2>
-        <p class="text-2xl md:text-3xl text-accent font-semibold">
-          et passez en cuisine
-        </p>
-        <div class="mt-8 flex justify-center">
-          <div class="w-24 h-1 bg-accent"></div>
+      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <p
+            class="text-sm font-bold uppercase tracking-[0.2em] text-accent mb-3"
+          >
+            Commande & livraison
+          </p>
+          <h2 class="text-4xl md:text-5xl font-bold mb-5">
+            Commandez, on vous livre
+          </h2>
+          <p class="text-xl md:text-2xl mb-3">
+            Livraison <span class="text-accent font-semibold">gratuite</span>
+            dans un rayon de 10 km autour de la boucherie.
+          </p>
+          <p class="text-lg opacity-85 mb-9">
+            Dites-nous ce qu'il vous faut par téléphone ou sur WhatsApp : on
+            prépare votre commande, vous passez la chercher ou on vous
+            l'apporte.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+14383818181"
+              class="inline-flex items-center justify-center gap-3 bg-accent text-secondary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 transition-colors"
+            >
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              438 381-8181
+            </a>
+            <a
+              href="https://wa.me/14383818181?text=Bonjour%20%21%20Je%20souhaite%20passer%20une%20commande."
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-3 bg-whatsapp text-white px-8 py-4 rounded-full font-bold text-lg hover:brightness-90 transition-all"
+            >
+              <i class="fab fa-whatsapp text-xl" aria-hidden="true"></i>
+              Commander sur WhatsApp
+            </a>
+          </div>
+
+          <p class="mt-8 text-sm md:text-base opacity-90">
+            Samedi au jeudi 9 h – 21 h · Vendredi 9 h – 13 h et 14 h – 21 h
+          </p>
         </div>
-      </div>
-      <div class="absolute top-0 left-0 w-full h-full">
-        <div
-          class="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"
-        ></div>
-        <div
-          class="absolute bottom-10 right-10 w-16 h-16 bg-accent/20 rounded-full animate-pulse delay-1000"
-        ></div>
-        <div
-          class="absolute top-1/2 left-1/4 w-8 h-8 bg-white/5 rounded-full animate-bounce"
-        ></div>
       </div>
     </section>
 
@@ -1371,10 +1469,52 @@
       </div>
     </footer>
 
+    <!-- Barre d'action fixe, mobile uniquement. Le corps de page reçoit un
+         padding-bottom équivalent (voir la feuille de styles) pour que le
+         pied de page ne passe pas dessous. -->
+    <nav
+      class="barre-mobile md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-gray-200"
+      aria-label="Actions rapides"
+    >
+      <div class="grid grid-cols-3">
+        <a
+          href="tel:+14383818181"
+          class="flex flex-col items-center justify-center gap-1 py-3 text-secondary active:bg-gray-100 transition-colors"
+        >
+          <i class="fas fa-phone text-primary text-lg" aria-hidden="true"></i>
+          <span class="text-xs font-semibold">Appeler</span>
+        </a>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=1825%20Rue%20Jean-Talon%20E%2C%20Montr%C3%A9al%2C%20QC%20H2E%201T4"
+          target="_blank"
+          rel="noopener"
+          class="flex flex-col items-center justify-center gap-1 py-3 text-secondary border-x border-gray-200 active:bg-gray-100 transition-colors"
+        >
+          <i
+            class="fas fa-location-arrow text-primary text-lg"
+            aria-hidden="true"
+          ></i>
+          <span class="text-xs font-semibold">Itinéraire</span>
+        </a>
+        <a
+          href="https://wa.me/14383818181?text=Bonjour%20%21%20Je%20souhaite%20passer%20une%20commande."
+          target="_blank"
+          rel="noopener"
+          class="flex flex-col items-center justify-center gap-1 py-3 text-secondary active:bg-gray-100 transition-colors"
+        >
+          <i
+            class="fab fa-whatsapp text-whatsapp text-xl"
+            aria-hidden="true"
+          ></i>
+          <span class="text-xs font-semibold">WhatsApp</span>
+        </a>
+      </div>
+    </nav>
+
     <button
       id="scrollTop"
       aria-label="Revenir en haut de la page"
-      class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 hidden transform hover:scale-110"
+      class="fixed bottom-24 md:bottom-8 right-4 md:right-8 w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 hidden transform hover:scale-110"
     >
       <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
@@ -1392,6 +1532,102 @@
       }
 
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Statut d'ouverture, calculé à l'heure de Montréal et non à celle du
+      // visiteur. Samedi->jeudi 9 h-21 h ; vendredi 9 h-13 h puis 14 h-21 h.
+      const HORAIRES = {
+        0: [[9, 21]], // dimanche
+        1: [[9, 21]],
+        2: [[9, 21]],
+        3: [[9, 21]],
+        4: [[9, 21]],
+        5: [
+          [9, 13],
+          [14, 21],
+        ], // vendredi : pause de 13 h à 14 h
+        6: [[9, 21]], // samedi
+      };
+
+      const JOURS = [
+        "dimanche",
+        "lundi",
+        "mardi",
+        "mercredi",
+        "jeudi",
+        "vendredi",
+        "samedi",
+      ];
+
+      function maintenantAMontreal() {
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/Toronto",
+          weekday: "short",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).formatToParts(new Date());
+        const lire = (type) => parts.find((p) => p.type === type).value;
+        const index = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+        let heure = parseInt(lire("hour"), 10);
+        if (heure === 24) heure = 0; // certains moteurs renvoient 24 à minuit
+        return {
+          jour: index[lire("weekday")],
+          minutes: heure * 60 + parseInt(lire("minute"), 10),
+        };
+      }
+
+      function statutOuverture(instant) {
+        const { jour, minutes } = instant || maintenantAMontreal();
+
+        for (const [debut, fin] of HORAIRES[jour]) {
+          if (minutes >= debut * 60 && minutes < fin * 60) {
+            return { ouvert: true, texte: "Ouvert · ferme à " + fin + " h" };
+          }
+        }
+
+        // Fermé : on cherche le prochain créneau d'ouverture.
+        for (let ecart = 0; ecart < 8; ecart++) {
+          const j = (jour + ecart) % 7;
+          for (const [debut] of HORAIRES[j]) {
+            if (ecart > 0 || minutes < debut * 60) {
+              const quand =
+                ecart === 0 ? "" : ecart === 1 ? "demain " : JOURS[j] + " ";
+              return {
+                ouvert: false,
+                texte: "Fermé · ouvre " + quand + "à " + debut + " h",
+              };
+            }
+          }
+        }
+        return { ouvert: false, texte: "Fermé" };
+      }
+
+      function afficherStatut() {
+        const bloc = document.getElementById("statutOuverture");
+        if (!bloc) return;
+        const { ouvert, texte } = statutOuverture();
+        document.getElementById("statutTexte").textContent = texte;
+        document.getElementById("statutPastille").className =
+          "pastille " + (ouvert ? "pastille-ouvert" : "pastille-ferme");
+      }
+
+      afficherStatut();
+      setInterval(afficherStatut, 60000);
+
+      // Réserve en bas de page exactement la hauteur de la barre d'action
+      // mobile : la deviner en CSS laissait le pied de page passer dessous
+      // (la hauteur varie avec la taille de police et la zone sûre iOS).
+      function ajusterEspaceBarreMobile() {
+        const barre = document.querySelector(".barre-mobile");
+        if (!barre) return;
+        const affichee = getComputedStyle(barre).display !== "none";
+        document.body.style.paddingBottom = affichee
+          ? barre.offsetHeight + "px"
+          : "";
+      }
+
+      ajusterEspaceBarreMobile();
+      window.addEventListener("resize", ajusterEspaceBarreMobile);
 
       function scrollToSection(sectionId) {
         document.getElementById(sectionId).scrollIntoView({
